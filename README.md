@@ -147,6 +147,11 @@ api-calculadora-fastapi/
 ├── assets/
 │   ├── calculadora-doble.png
 │   └── calculadora-sumar.png
+├── Cliente_API_Calculadora.ipynb
+├── docs/
+│   ├── diagrama-arquitectura.md
+│   ├── diagrama-arquitectura.svg
+│   └── evidencias.md
 ├── .github/workflows/ci.yml
 ├── tests/test_api.py
 ├── requirements-dev.txt
@@ -158,6 +163,18 @@ api-calculadora-fastapi/
 ├── main.py
 └── requirements.txt
 ```
+
+## Evidencias de evaluación (rúbrica oficial)
+
+| Criterio | Evidencia que puede comprobar el profesor |
+| --- | --- |
+| Repositorio (2 puntos) | Código, Dockerfile, dependencias, instrucciones y pruebas presentes en GitHub |
+| API y comprobación (6 puntos) | GET y POST en `main.py`, Swagger `/docs`, [salidas verificadas](docs/evidencias.md) y [notebook de Colab con respuestas visibles](Cliente_API_Calculadora.ipynb) |
+| Diagrama (2 puntos) | [Diagrama completo de petición y respuesta](docs/diagrama-arquitectura.md) |
+
+![Diagrama del recorrido de la API](docs/diagrama-arquitectura.svg)
+
+> La URL de ngrok del notebook corresponde a la sesión de prácticas y puede dejar de funcionar. Las salidas obtenidas están guardadas en el propio `.ipynb`. No se incluyen tokens de autenticación.
 
 ## Qué se ha aprendido
 

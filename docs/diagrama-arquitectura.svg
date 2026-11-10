@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1140 620" role="img" aria-labelledby="t d">
+<title id="t">Recorrido de la API Calculadora</title>
+<desc id="d">Peticiones desde Google Colab a ngrok, Docker y FastAPI. Respuestas JSON de vuelta. Navegador local puede llegar directamente a Docker.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#287b79"/></marker><marker id="back" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#a46a45"/></marker></defs>
+<rect width="1140" height="620" fill="#faf9f6"/>
+<text x="48" y="64" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="#1e2b36">API Calculadora · recorrido completo</text>
+<text x="48" y="97" font-family="Arial,sans-serif" font-size="16" fill="#59616a">Petición GET / POST y respuesta JSON · Docker · ngrok · Google Colab</text>
+<rect x="42" y="165" width="226" height="125" rx="14" fill="#eff2ff" stroke="#6674b7" stroke-width="2"/><text x="58" y="195" font-family="Arial,sans-serif" font-size="14" fill="#515b65">Cliente remoto</text><text x="58" y="232" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#17202c">Google Colab</text><text x="58" y="258" font-family="Arial,sans-serif" font-size="15" fill="#404956">requests (Python)</text><rect x="330" y="165" width="226" height="125" rx="14" fill="#eaf8f3" stroke="#3a8d70" stroke-width="2"/><text x="346" y="195" font-family="Arial,sans-serif" font-size="14" fill="#515b65">Túnel público</text><text x="346" y="232" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#17202c">ngrok</text><text x="346" y="258" font-family="Arial,sans-serif" font-size="15" fill="#404956">HTTPS → 8001</text><rect x="618" y="165" width="226" height="125" rx="14" fill="#fff3e8" stroke="#b17d46" stroke-width="2"/><text x="634" y="195" font-family="Arial,sans-serif" font-size="14" fill="#515b65">Contenedor</text><text x="634" y="232" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#17202c">Docker</text><text x="634" y="258" font-family="Arial,sans-serif" font-size="15" fill="#404956">Windows 8001 → 8000</text><rect x="906" y="165" width="226" height="125" rx="14" fill="#f5eefb" stroke="#785ca1" stroke-width="2"/><text x="922" y="195" font-family="Arial,sans-serif" font-size="14" fill="#515b65">Servidor API</text><text x="922" y="232" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#17202c">FastAPI</text><text x="922" y="258" font-family="Arial,sans-serif" font-size="15" fill="#404956">Uvicorn :8000</text>
+<path d="M268 211 H330 M556 211 H618 M844 211 H906" fill="none" stroke="#287b79" stroke-width="3" marker-end="url(#arr)"/>
+<text x="299" y="149" text-anchor="middle" fill="#287b79" font-family="Arial" font-size="14">HTTPS</text>
+<text x="587" y="149" text-anchor="middle" fill="#287b79" font-family="Arial" font-size="14">túnel</text>
+<text x="875" y="149" text-anchor="middle" fill="#287b79" font-family="Arial" font-size="14">puerto</text>
+<path d="M906 277 H844 M618 277 H556 M330 277 H268" fill="none" stroke="#a46a45" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#back)"/>
+<text x="570" y="320" text-anchor="middle" fill="#a46a45" font-family="Arial" font-size="16">Respuesta HTTP 200 + JSON (recorrido inverso)</text>
+<rect x="906" y="366" width="226" height="97" rx="12" fill="#fff" stroke="#9b8bb1"/>
+<text x="922" y="397" font-family="Arial" font-size="17" fill="#202b34">GET /doble/{numero}</text>
+<text x="922" y="430" font-family="Arial" font-size="17" fill="#202b34">POST /sumar</text>
+<path d="M1019 290 V366" stroke="#287b79" stroke-width="3" marker-end="url(#arr)"/>
+<rect x="618" y="366" width="226" height="97" rx="12" fill="#fff" stroke="#9b8bb1"/>
+<text x="634" y="397" font-family="Arial" font-size="17" fill="#202b34">Navegador local</text>
+<text x="634" y="430" font-family="Arial" font-size="15" fill="#606b72">localhost:8001 /docs</text>
+<path d="M732 366 V290" stroke="#287b79" stroke-width="3" marker-end="url(#arr)"/>
+<text x="44" y="536" font-family="Arial" font-size="18" fill="#287b79">━━━&gt; petición</text>
+<text x="285" y="536" font-family="Arial" font-size="18" fill="#a46a45">- - -&gt; respuesta</text>
+<text x="44" y="577" font-family="Arial" font-size="16" fill="#616b73">El túnel de ngrok es temporal y no es necesario para acceder desde el mismo ordenador.</text>
+</svg>
