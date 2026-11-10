@@ -166,7 +166,7 @@ api-calculadora-fastapi/
 
 ## Evidencias de evaluación (rúbrica oficial)
 
-| Criterio | Evidencia que puede comprobar el profesor |
+| Criterio | Evidencia para comprobar |
 | --- | --- |
 | Repositorio (2 puntos) | Código, Dockerfile, dependencias, instrucciones y pruebas presentes en GitHub |
 | API y comprobación (6 puntos) | GET y POST en `main.py`, Swagger `/docs`, [salidas verificadas](docs/evidencias.md) y [notebook de Colab con respuestas visibles](Cliente_API_Calculadora.ipynb) |
