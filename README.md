@@ -1,8 +1,17 @@
 # API Calculadora · FastAPI + Docker
 
+[![Comprobar API](https://github.com/raineragoge/api-calculadora-fastapi/actions/workflows/ci.yml/badge.svg)](https://github.com/raineragoge/api-calculadora-fastapi/actions/workflows/ci.yml)
+
 Aplicación web educativa de una calculadora construida con **FastAPI (Python)**, **HTML, CSS y JavaScript**, y ejecutada dentro de un contenedor **Docker**. También se ha probado el acceso remoto mediante **ngrok** y el consumo de la API desde **Google Colab**.
 
 ![Interfaz de la calculadora realizando una suma](assets/calculadora-sumar.png)
+
+<details>
+<summary>Ver también el cálculo del doble</summary>
+
+![Interfaz calculando el doble](assets/calculadora-doble.png)
+
+</details>
 
 ## ¿Qué hace?
 
@@ -88,6 +97,17 @@ curl http://localhost:8001/doble/9
 Invoke-RestMethod -Uri http://localhost:8001/sumar -Method Post -ContentType 'application/json' -Body '{"a":3,"b":4}'
 ```
 
+## Pruebas automatizadas
+
+Instala las dependencias de desarrollo y ejecuta las pruebas desde la raíz del proyecto:
+
+```bash
+python -m pip install -r requirements-dev.txt
+python -m pytest -q
+```
+
+Las pruebas comprueban las operaciones GET/POST, las validaciones HTTP 422, la respuesta HTML de la interfaz y la generación de OpenAPI. El flujo de **GitHub Actions** (`.github/workflows/ci.yml`) ejecuta los tests y construye la imagen Docker en cada `push` a `main` y en cada pull request.
+
 ### Consumir desde Google Colab
 
 Primero, con Docker en ejecución, crea un túnel local:
@@ -127,6 +147,9 @@ api-calculadora-fastapi/
 ├── assets/
 │   ├── calculadora-doble.png
 │   └── calculadora-sumar.png
+├── .github/workflows/ci.yml
+├── tests/test_api.py
+├── requirements-dev.txt
 ├── .dockerignore
 ├── .gitignore
 ├── Dockerfile
@@ -145,5 +168,6 @@ api-calculadora-fastapi/
 5. Exponer temporalmente un servidor local con ngrok.
 6. Consumir una API con `requests` desde Colab.
 7. Conectar una interfaz HTML/JavaScript a un backend mediante `fetch()`.
+8. Automatizar pruebas y la verificación de una imagen Docker con GitHub Actions.
 
-**Alcance:** proyecto didáctico. No incluye autenticación, persistencia de datos, despliegue permanente ni CI/CD.
+**Alcance:** proyecto didáctico. No incluye autenticación, persistencia de datos ni despliegue permanente. Sí incluye CI (pruebas y comprobación de construcción), pero no CD (despliegue automático).
