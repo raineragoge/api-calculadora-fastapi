@@ -2,6 +2,8 @@
 
 Aplicación web educativa de una calculadora construida con **FastAPI (Python)**, **HTML, CSS y JavaScript**, y ejecutada dentro de un contenedor **Docker**. También se ha probado el acceso remoto mediante **ngrok** y el consumo de la API desde **Google Colab**.
 
+![Interfaz de la calculadora realizando una suma](assets/calculadora-sumar.png)
+
 ## ¿Qué hace?
 
 - Calcula el doble de un entero mediante una petición **GET**.
@@ -122,6 +124,9 @@ print(post_response.json())  # {'resultado': 100.0}
 
 ```text
 api-calculadora-fastapi/
+├── assets/
+│   ├── calculadora-doble.png
+│   └── calculadora-sumar.png
 ├── .dockerignore
 ├── .gitignore
 ├── Dockerfile
