@@ -1,0 +1,12 @@
+.git
+.venv
+venv
+__pycache__
+*.pyc
+.env
+.env.*
+.vscode
+.idea
+assets
+README.md
+*.zip

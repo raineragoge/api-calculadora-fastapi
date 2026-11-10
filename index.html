@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API Calculadora</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #f3f0e9;
+      font-family: Arial, sans-serif;
+      color: #242424;
+    }
+
+    .calculadora {
+      width: min(420px, 92%);
+      background: #fff;
+      padding: 34px;
+      border: 1px solid #e3ded5;
+      border-radius: 16px;
+      box-shadow: 0 12px 35px #0000000a;
+    }
+
+    .etiqueta {
+      color: #9b603b;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    h1 { margin: 12px 0 8px; font-size: 30px; }
+    p { color: #777; font-size: 14px; }
+
+    label {
+      display: block;
+      margin: 20px 0 8px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d6d2cb;
+      border-radius: 7px;
+      background: white;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 24px;
+      width: 100%;
+      padding: 15px;
+      background: #252525;
+      color: white;
+      border: 0;
+      border-radius: 7px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    button:hover { background: #9b603b; }
+
+    .resultado {
+      margin-top: 26px;
+      padding: 20px;
+      background: #f5f2ec;
+      border-radius: 8px;
+    }
+
+    .resultado small { color: #777; }
+    #valor { font-size: 30px; margin-top: 8px; }
+
+    .pie { text-align: center; margin-top: 20px; }
+  </style>
+</head>
+
+<body>
+  <main class="calculadora">
+    <div class="etiqueta">FASTAPI / DOCKER</div>
+    <h1>Calculadora.</h1>
+    <p>Operaciones conectadas a una API REST.</p>
+
+    <form id="formulario">
+      <label for="operacion">Operación</label>
+      <select id="operacion">
+        <option value="sumar">Sumar dos números</option>
+        <option value="doble">Calcular el doble</option>
+      </select>
+
+      <label for="numero1">Primer número</label>
+      <input id="numero1" type="number" step="any" required>
+
+      <div id="segundoCampo">
+        <label for="numero2">Segundo número</label>
+        <input id="numero2" type="number" step="any" required>
+      </div>
+
+      <button type="submit">Calcular →</button>
+    </form>
+
+    <div class="resultado" aria-live="polite">
+      <small>RESULTADO</small>
+      <div id="valor">—</div>
+    </div>
+
+    <p class="pie">Python · FastAPI · Docker</p>
+  </main>
+
+  <script>
+    const operacion = document.getElementById("operacion");
+    const segundoCampo = document.getElementById("segundoCampo");
+    const numero2 = document.getElementById("numero2");
+    const valor = document.getElementById("valor");
+
+    operacion.addEventListener("change", () => {
+      const sumar = operacion.value === "sumar";
+      segundoCampo.hidden = !sumar;
+      numero2.required = sumar;
+      valor.textContent = "—";
+    });
+
+    document.getElementById("formulario")
+      .addEventListener("submit", async (evento) => {
+        evento.preventDefault();
+
+        const a = Number(document.getElementById("numero1").value);
+        let url;
+        let opciones;
+
+        if (operacion.value === "doble") {
+          if (!Number.isInteger(a)) {
+            valor.textContent = "Introduce un número entero";
+            return;
+          }
+
+          url = `/doble/${a}`;
+          opciones = { method: "GET" };
+        } else {
+          const b = Number(numero2.value);
+          url = "/sumar";
+          opciones = {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ a, b })
+          };
+        }
+
+        try {
+          valor.textContent = "Calculando...";
+          const respuesta = await fetch(url, opciones);
+          if (!respuesta.ok) throw new Error("Error HTTP");
+          const datos = await respuesta.json();
+
+          valor.textContent = datos.resultado ?? datos.doble;
+        } catch (error) {
+          valor.textContent = "Error al conectar con la API";
+        }
+      });
+  </script>
+</body>
+</html>
