@@ -171,3 +171,14 @@ api-calculadora-fastapi/
 8. Automatizar pruebas y la verificación de una imagen Docker con GitHub Actions.
 
 **Alcance:** proyecto didáctico. No incluye autenticación, persistencia de datos ni despliegue permanente. Sí incluye CI (pruebas y comprobación de construcción), pero no CD (despliegue automático).
+
+## Conclusión
+
+Me ha ayudado a enterlo el tratar de pensar que las APIs son como funciones de Python o C++.
+Es decir, yo creo una función (una API) y luego puedo llamar a esa función cuando quiera hacer la acción que encierra esa función (el usuario usa el token para hacer una solicitud a la API)
+Además, como en las funciones, podemos meter información dentro de la API con Post, que es similar a lo que tambien se pueden hacer en las funciones.
+En definitiva, lo veo algo sumamente util y que además puede ser la base de muchos negocios.  
+
+Gracias por leer has el final
+
+                                                                                                                                           
