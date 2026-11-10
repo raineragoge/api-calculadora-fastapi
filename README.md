@@ -176,7 +176,7 @@ api-calculadora-fastapi/
 
 > La URL de ngrok del notebook corresponde a la sesión de prácticas y puede dejar de funcionar. Las salidas obtenidas están guardadas en el propio `.ipynb`. No se incluyen tokens de autenticación.
 
-## Qué se ha aprendido
+## Qué he aprendido
 
 1. Crear endpoints **GET** y **POST** en FastAPI.
 2. Validar cuerpos JSON con **Pydantic**.
